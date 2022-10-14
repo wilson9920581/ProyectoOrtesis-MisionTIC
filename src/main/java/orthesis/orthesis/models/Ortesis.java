@@ -1,9 +1,8 @@
 package orthesis.orthesis.models;
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import javax.persistence.*;
-import java.awt.*;
 import java.io.Serializable;
 import java.util.List;
 
@@ -71,5 +70,25 @@ public class Ortesis implements Serializable {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    //Metodos Getter y Setter foreign Keys
+
+    public List<Message> getMessage() {
+        return message;
+    }
+
+    public Ortesis setMessage(List<Message> message) {
+        this.message = message;
+        return this;
+    }
+
+    public List<Reservation> getReservation() {
+        return reservation;
+    }
+
+    public Ortesis setReservation(List<Reservation> reservation) {
+        this.reservation = reservation;
+        return this;
     }
 }

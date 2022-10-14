@@ -26,9 +26,6 @@ public class Message implements Serializable {
     private Client client;
 
 
-
-
-
     //Metodos Getter y Setter:
 
     public Integer getIdMessage() {
@@ -47,5 +44,20 @@ public class Message implements Serializable {
         this.messagetext = messagetext;
     }
 
+    //Metodos set y Get Foreign Keys.
+    public Ortesis getOrtesis() {
+        return ortesis;
+    }
 
+    public void setOrtesis(Ortesis ortesis) {
+        this.ortesis = ortesis;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public void setClient(Client client) {
+        this.client = client;
+    }
 }

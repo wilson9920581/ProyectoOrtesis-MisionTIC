@@ -67,4 +67,33 @@ public class Reservation implements Serializable {
     public void setStatus_Code(String status_Code) {
         Status_Code = status_Code;
     }
+
+    //Metodos Getter y Setter Foreign Keys:
+
+    public Ortesis getOrtesis() {
+        return ortesis;
+    }
+
+    public Reservation setOrtesis(Ortesis ortesis) {
+        this.ortesis = ortesis;
+        return this;
+    }
+
+    public Client getClient() {
+        return client;
+    }
+
+    public Reservation setClient(Client client) {
+        this.client = client;
+        return this;
+    }
+
+    public Score getScore() {
+        return score;
+    }
+
+    public Reservation setScore(Score score) {
+        this.score = score;
+        return this;
+    }
 }

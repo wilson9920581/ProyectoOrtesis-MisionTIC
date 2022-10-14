@@ -11,17 +11,20 @@ public class Admin implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
 
     //Attributes:
-    private Integer idAdmin;
+    private Integer id;
     private String name;
     private String email;
     private String password;
 
-    public Integer getIdAdmin() {
-        return idAdmin;
+    //Metodos Setter y Getter
+
+
+    public Integer getId() {
+        return id;
     }
 
-    public void setIdAdmin(Integer idAdmin) {
-        this.idAdmin = idAdmin;
+    public void setId(Integer id) {
+        this.id = id;
     }
 
     public String getName() {

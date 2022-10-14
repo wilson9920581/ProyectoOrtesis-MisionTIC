@@ -57,4 +57,7 @@ public class Category implements Serializable {
     public void setOrtesis(List<Ortesis> ortesis) {
         this.ortesis = ortesis;
     }
+
+
+
 }

@@ -48,4 +48,17 @@ public class Score implements Serializable {
     public void setScoring(Integer scoring) {
         this.scoring = scoring;
     }
+
+    //Metodos Get y Set Foreign Keys
+    public Reservation getReservation() {
+        return reservation;
+    }
+
+    public Score setReservation(Reservation reservation) {
+        this.reservation = reservation;
+        return this;
+    }
+
+
 }
+
