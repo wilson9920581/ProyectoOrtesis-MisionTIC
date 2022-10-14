@@ -16,7 +16,7 @@ public class Client implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //Attributes
-    private Integer id;
+    private Integer idClient;
     private String name;
     private String email;
     private Integer age; //falta messages?
@@ -24,43 +24,65 @@ public class Client implements Serializable {
     //Relations:
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy ="client" )
     @JsonIgnoreProperties("client")
-    private List<Reservation> reservation;
+    private List<Reservation> reservations;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy ="client" )
     @JsonIgnoreProperties("client")
-    private List<Message> message;  //error
+    private List<Message> messages;
 
-    //metodos setter y getter:
+    //Metodos Setter y Getter
 
-    public Integer getId() {
-        return id;
+    public Integer getIdClient() {
+        return idClient;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
+    public Client setIdClient(Integer idClient) {
+        this.idClient = idClient;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Client setName(String name) {
         this.name = name;
+        return this;
     }
 
     public String getEmail() {
         return email;
     }
 
-    public void setEmail(String email) {
+    public Client setEmail(String email) {
         this.email = email;
+        return this;
     }
 
     public Integer getAge() {
         return age;
     }
 
-    public void setAge(Integer age) {
+    public Client setAge(Integer age) {
         this.age = age;
+        return this;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public Client setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
+        return this;
+    }
+
+    public List<Message> getMessages() {
+        return messages;
+    }
+
+    public Client setMessages(List<Message> messages) {
+        this.messages = messages;
+        return this;
     }
 }

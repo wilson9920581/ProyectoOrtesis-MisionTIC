@@ -16,6 +16,7 @@ public class Ortesis implements Serializable {
     private String brand;
     private String name;
     private Integer model;
+    private Integer category_id;
 
     //Relations:
     @ManyToOne
@@ -24,71 +25,84 @@ public class Ortesis implements Serializable {
     private Category category;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "ortesis") //Error
-    @JsonIgnoreProperties("ortesis")
-    private List<Message> message;
+    @JsonIgnoreProperties({"ortesis","client"})
+    private List<Message> messages;
 
     @OneToMany(cascade = {CascadeType.PERSIST}, mappedBy = "ortesis")
-    @JsonIgnoreProperties("ortesis")
-    private List<Reservation> reservation;
+    @JsonIgnoreProperties({"ortesis","messages"})
+    private List<Reservation> reservations;
 
     //metodos setter y getter
+
     public Integer getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public Ortesis setId(Integer id) {
         this.id = id;
+        return this;
     }
 
     public String getBrand() {
         return brand;
     }
 
-    public void setBrand(String brand) {
+    public Ortesis setBrand(String brand) {
         this.brand = brand;
+        return this;
     }
 
     public String getName() {
         return name;
     }
 
-    public void setName(String name) {
+    public Ortesis setName(String name) {
         this.name = name;
+        return this;
     }
 
     public Integer getModel() {
         return model;
     }
 
-    public void setModel(Integer model) {
+    public Ortesis setModel(Integer model) {
         this.model = model;
+        return this;
+    }
+
+    public Integer getCategory_id() {
+        return category_id;
+    }
+
+    public Ortesis setCategory_id(Integer category_id) {
+        this.category_id = category_id;
+        return this;
     }
 
     public Category getCategory() {
         return category;
     }
 
-    public void setCategory(Category category) {
+    public Ortesis setCategory(Category category) {
         this.category = category;
-    }
-
-    //Metodos Getter y Setter foreign Keys
-
-    public List<Message> getMessage() {
-        return message;
-    }
-
-    public Ortesis setMessage(List<Message> message) {
-        this.message = message;
         return this;
     }
 
-    public List<Reservation> getReservation() {
-        return reservation;
+    public List<Message> getMessages() {
+        return messages;
     }
 
-    public Ortesis setReservation(List<Reservation> reservation) {
-        this.reservation = reservation;
+    public Ortesis setMessages(List<Message> messages) {
+        this.messages = messages;
+        return this;
+    }
+
+    public List<Reservation> getReservations() {
+        return reservations;
+    }
+
+    public Ortesis setReservations(List<Reservation> reservations) {
+        this.reservations = reservations;
         return this;
     }
 }

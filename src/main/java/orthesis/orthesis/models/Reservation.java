@@ -14,20 +14,20 @@ public class Reservation implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     //Attributes
-    private Integer idReservations;
+    private Integer idReservation;
     private Date StartDate;
     private Date devolutionDate;
     private String Status_Code="created";
 
     //Relations:
     @ManyToOne
-    @JoinColumn(name = "ortesisId")
-    @JsonIgnoreProperties("reservation")
+    @JoinColumn(name = "Id")
+    @JsonIgnoreProperties("reservations")
     private Ortesis ortesis;
 
     @ManyToOne
     @JoinColumn(name = "clientId")
-    @JsonIgnoreProperties("reservation")
+    @JsonIgnoreProperties({"reservations","messages"})
     private Client client;
 
     @OneToOne(cascade = {CascadeType.REMOVE}, mappedBy = "reservation")
@@ -36,39 +36,42 @@ public class Reservation implements Serializable {
 
     //metodos Getter y Setter:
 
-    public Integer getIdReservations() {
-        return idReservations;
+
+    public Integer getIdReservation() {
+        return idReservation;
     }
 
-    public void setIdReservations(Integer idReservations) {
-        this.idReservations = idReservations;
+    public Reservation setIdReservation(Integer idReservation) {
+        this.idReservation = idReservation;
+        return this;
     }
 
     public Date getStartDate() {
         return StartDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public Reservation setStartDate(Date startDate) {
         StartDate = startDate;
+        return this;
     }
 
     public Date getDevolutionDate() {
         return devolutionDate;
     }
 
-    public void setDevolutionDate(Date devolutionDate) {
+    public Reservation setDevolutionDate(Date devolutionDate) {
         this.devolutionDate = devolutionDate;
+        return this;
     }
 
     public String getStatus_Code() {
         return Status_Code;
     }
 
-    public void setStatus_Code(String status_Code) {
+    public Reservation setStatus_Code(String status_Code) {
         Status_Code = status_Code;
+        return this;
     }
-
-    //Metodos Getter y Setter Foreign Keys:
 
     public Ortesis getOrtesis() {
         return ortesis;

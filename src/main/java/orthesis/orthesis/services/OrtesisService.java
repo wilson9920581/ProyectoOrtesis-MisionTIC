@@ -6,6 +6,7 @@ import orthesis.orthesis.models.Ortesis;
 import orthesis.orthesis.repository.OrtesisRepository;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class OrtesisService {
@@ -17,11 +18,20 @@ public class OrtesisService {
         return ortesisRepository.getAll();
     }
 
+    public Optional<Ortesis> getOrtesis(int id){
+        return ortesisRepository.getOrtesis(id);
+    }
+
     public Ortesis save(Ortesis ortesis){
         if (ortesis.getId() == null){
             return ortesisRepository.save(ortesis);
         }else {
-            return ortesis;
+            Optional<Ortesis> orthesis1 = ortesisRepository.getOrtesis(ortesis.getId());
+            if (orthesis1.isEmpty()) {
+                return ortesisRepository.save(ortesis);
+            } else {
+                return ortesis;
+            }
         }
     }
 }

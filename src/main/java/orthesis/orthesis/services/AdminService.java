@@ -14,6 +14,7 @@ public class AdminService {
     @Autowired
     private AdminRepository adminRepository;
 
+    //es necesario que vayan estas lineas de codigo?
     public List<Admin> getAll(){return adminRepository.getAll();}
 
     public Optional<Admin> getAdmin(int id){
@@ -21,7 +22,7 @@ public class AdminService {
     }
 
     public Admin save(Admin admin){
-        if (admin.getId() == null){
+        if (admin.getIdAdmin() == null){
             return adminRepository.save(admin);
         }else {
             return admin;

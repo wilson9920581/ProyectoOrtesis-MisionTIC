@@ -10,14 +10,16 @@ import java.util.Optional;
 @Repository
 public class AdminRepository {
     @Autowired
-    private AdminCrudRepository adminCrudRepository;
+    private AdminCrudRepository adminCrudRepository;  //error
 
+
+    // pregunta: es necesario tener este codigo en el AdminRepository?
     public List<Admin> getAll() {return (List<Admin>) adminCrudRepository.findAll();}
 
     public Optional<Admin> getAdmin(int id) {return adminCrudRepository.findById(id);}
 
     public Admin save(Admin admin){
-        return adminCrudRepository.save(admin);
+       return adminCrudRepository.save(admin);
     }
 
 }

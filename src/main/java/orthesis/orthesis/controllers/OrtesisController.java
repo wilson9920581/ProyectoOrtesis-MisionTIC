@@ -7,18 +7,26 @@ import orthesis.orthesis.models.Ortesis;
 import orthesis.orthesis.services.OrtesisService;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/api/Ortopedic")
+@CrossOrigin(origins ="*",methods = {RequestMethod.GET,RequestMethod.POST,RequestMethod.DELETE,RequestMethod.PUT})
 
 public class OrtesisController {
    @Autowired
    private OrtesisService ortesisService;
 
    @GetMapping("/all")
-   public List<Ortesis> getOrtesis(){
-       return ortesisService.getAll();
+   public List<Ortesis> getAll(){
+      return ortesisService.getAll();
    }
+
+   //@GetMapping("/{id}")
+   //public Optional<Ortesis> getOrtesis(@PathVariable("id") int id){
+   // return ortesisService.getOrtesis(id); //error
+   //}
+
    @PostMapping("/save")
    @ResponseStatus(HttpStatus.CREATED)
    public Ortesis save(@RequestBody Ortesis ortesis){

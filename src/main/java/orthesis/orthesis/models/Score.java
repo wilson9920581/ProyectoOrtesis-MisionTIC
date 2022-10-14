@@ -54,11 +54,9 @@ public class Score implements Serializable {
         return reservation;
     }
 
-    public Score setReservation(Reservation reservation) {
+    public void setReservation(Reservation reservation) {
         this.reservation = reservation;
-        return this;
     }
-
 
 }
 

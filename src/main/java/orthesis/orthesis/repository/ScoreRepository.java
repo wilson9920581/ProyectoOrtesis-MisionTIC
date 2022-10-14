@@ -5,5 +5,6 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public class ScoreRepository {
-    @Autowired ScoreCrudRepository scoreCrudRepository;
+    @Autowired
+    private ScoreCrudRepository scoreCrudRepository;
 }
